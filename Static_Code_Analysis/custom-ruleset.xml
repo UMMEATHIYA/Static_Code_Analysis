@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruleset name="My Custom Ruleset"
+<ruleset name="Combined Ruleset"
          xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
 
-    <description>My custom ruleset for static code analysis</description>
+    <description>
+        Combined ruleset including custom ruleset and others.
+    </description>
 
-    <!-- Example rule: Avoid unused private fields -->
-    <rule ref="category/java/bestpractices.xml/AvoidUnusedPrivateFields">
-        <priority>3</priority>
-        <properties>
-            <property name="minimum" value="1"/>
-        </properties>
-    </rule>
+    <!-- Reference the custom ruleset using relative path -->
+    <rule ref="./custom-ruleset.xml"/>
 
-    <!-- Add more rules as needed -->
+    <!-- Additional rules -->
+    <rule ref="category/java/bestpractices.xml/AvoidUnusedPrivateFields"/>
+    <rule ref="category/java/bestpractices.xml/UnusedImports"/>
+    <rule ref="category/java/codestyle.xml/VariableNamingConventions"/>
+    <rule ref="category/java/migrating.xml/UseDiamondOperator"/>
 
 </ruleset>
